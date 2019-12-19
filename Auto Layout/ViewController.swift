@@ -46,9 +46,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor(named: "bgColor")
         
-//        view.addSubview(imageView)
-        view.addSubview(titleView)
-        view.addSubview(descriptionView)
+
         setupLayout()
         
         
@@ -56,19 +54,42 @@ class ViewController: UIViewController {
 
     private func setupLayout(){
         
+        //top container view
+        
         let topContainerView = UIView()
         topContainerView.translatesAutoresizingMaskIntoConstraints = false
-        topContainerView.backgroundColor = .clear
+//        topContainerView.backgroundColor = .white
         view.addSubview(topContainerView)
         
-        //top container view
+        //constraints
         topContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         topContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
         topContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //constraints
         //top container view
-        topContainerView.addSubview(imageView)
         
+        
+        //middle container view
+        
+        let middleContainerView = UIView()
+        middleContainerView.translatesAutoresizingMaskIntoConstraints = false
+//        middleContainerView.backgroundColor = .blue
+        view.addSubview(middleContainerView)
+        
+        //constraints
+        middleContainerView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor).isActive = true
+        middleContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        middleContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        middleContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //constraints
+        
+        //middle container view
+        
+        
+        topContainerView.addSubview(imageView)
+        middleContainerView.addSubview(titleView)
+        middleContainerView.addSubview(descriptionView)
         
         //image view constraints
         imageView.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor).isActive = true
@@ -78,14 +99,14 @@ class ViewController: UIViewController {
         //image view constraints
         
         //title text view
-        titleView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor, constant: 20).isActive = true
+        titleView.topAnchor.constraint(equalTo: middleContainerView.topAnchor).isActive = true
         titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 //        titleView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         //title text view
-        
+
         //description text view
-        descriptionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 20).isActive = true
+        descriptionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 15).isActive = true
         descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 //        descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
