@@ -19,8 +19,11 @@ class ViewController: UIViewController {
     let titleView : UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "Welcome to Universal Studio"
-        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        let text = NSMutableAttributedString(string: "Welcome to Universal Studio", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
+        text.append(NSMutableAttributedString(string: "\n\n\nA Entertainment and Theme Park Company Based on USA.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
+        
+        textView.attributedText = text
         textView.textAlignment = .center
         textView.textColor = .black
         textView.isEditable = false
@@ -29,27 +32,55 @@ class ViewController: UIViewController {
         return textView
     }()
     
-    let descriptionView : UITextView = {
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "A Hollywood is a film studio and theme park in the San Fernando Valley area of Los Angeles County, California."
-        textView.textAlignment = .center
-        textView.textColor = .black
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.backgroundColor = UIColor(named: "bgColor")
-        return textView
+    let previousButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("PREV", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        return button
     }()
+    
+    let nextButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("NEXT", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    let pageControl : UIPageControl = {
+        let control = UIPageControl()
+        control.currentPage = 0
+        control.numberOfPages = 4
+        control.currentPageIndicatorTintColor = .black
+        control.pageIndicatorTintColor = .gray
+        return control
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor(named: "bgColor")
         
-
+        setupBottomControls()
         setupLayout()
         
         
+    }
+    
+    private func setupBottomControls(){
+      
+        
+        let stackView = UIStackView(arrangedSubviews: [previousButton,pageControl,nextButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fillEqually
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 
     private func setupLayout(){
@@ -89,7 +120,7 @@ class ViewController: UIViewController {
         
         topContainerView.addSubview(imageView)
         middleContainerView.addSubview(titleView)
-        middleContainerView.addSubview(descriptionView)
+
         
         //image view constraints
         imageView.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor).isActive = true
@@ -105,12 +136,6 @@ class ViewController: UIViewController {
 //        titleView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         //title text view
 
-        //description text view
-        descriptionView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 15).isActive = true
-        descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        descriptionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //description text view
     }
 
 }

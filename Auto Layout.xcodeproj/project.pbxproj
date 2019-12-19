@@ -13,6 +13,7 @@
 		C611DC9E23A9F78B00D1B66E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C611DC9C23A9F78B00D1B66E /* Main.storyboard */; };
 		C611DCA023A9F7B300D1B66E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C611DC9F23A9F7B300D1B66E /* Assets.xcassets */; };
 		C611DCA323A9F7B300D1B66E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C611DCA123A9F7B300D1B66E /* LaunchScreen.storyboard */; };
+		C6D8B68023AB65B20053AB5E /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8B67F23AB65B20053AB5E /* SwipingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C611DC9F23A9F7B300D1B66E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C611DCA223A9F7B300D1B66E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C611DCA423A9F7B300D1B66E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6D8B67F23AB65B20053AB5E /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C611DC9F23A9F7B300D1B66E /* Assets.xcassets */,
 				C611DCA123A9F7B300D1B66E /* LaunchScreen.storyboard */,
 				C611DCA423A9F7B300D1B66E /* Info.plist */,
+				C6D8B67F23AB65B20053AB5E /* SwipingController.swift */,
 			);
 			path = "Auto Layout";
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				C611DC9B23A9F78A00D1B66E /* ViewController.swift in Sources */,
 				C611DC9723A9F78A00D1B66E /* AppDelegate.swift in Sources */,
 				C611DC9923A9F78A00D1B66E /* SceneDelegate.swift in Sources */,
+				C6D8B68023AB65B20053AB5E /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
